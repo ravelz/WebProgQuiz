@@ -8,11 +8,12 @@ use DB;
 class DetailPublisherController extends Controller
 {
     public function showPublisher($book){
-        $publisherData = DB::table('publishers')
-        ->join('books', 'publishers.id', '=', 'books.id')
+        $publisherData = DB::table('books')
+        ->join('publishers', 'publishers.id', '=', 'books.publisher_id')
         ->where('publishers.id', '=', $book)
+        ->select('books.*', 'publishers.name', 'address', 'phone', 'email')
         ->get();
-        // dd($publisherData[0]);
+        // dd($publisherData);
         return view('detailpublisher',['book' => $publisherData, 'first' => $publisherData[0]]);
     }
 }

@@ -12,8 +12,9 @@ class DetailController extends Controller
         ->where('id', '=', $book)
         ->get();
         // dd($bookData);
+        // dd($book);
         $publisherData = DB::table('publishers')
-        ->join('books', 'publishers.id', '=', 'books.id')
+        ->join('books', 'books.publisher_id', '=', 'publishers.id')
         ->where('books.id', '=', $book)
         ->get();
         // dd($publisherData);
