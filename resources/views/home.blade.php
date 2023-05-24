@@ -13,7 +13,7 @@
               <h5 class="card-title">{{ $data->title }}</h5>
               <p class="card-text">By</p>
               <p class="card-text">{{ $data->author }}</p>
-              <a href="{{ route('detail', ['book' => $data->id]) }}" class="btn btn-primary">Go somewhere</a>
+              <a href="{{ route('detail', ['book' => $data->id]) }}" class="btn btn-primary">Detail</a>
             </div>
           </div>
         @endforeach

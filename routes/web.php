@@ -18,9 +18,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'showHome'])->name('home');
 
 Route::get('/home', [HomeController::class, 'showHome'])->name('home');
 Route::get('/publisher', [PublisherController::class, 'showPublisher'])->name('publisher');

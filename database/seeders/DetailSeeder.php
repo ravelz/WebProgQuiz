@@ -25,6 +25,12 @@ class DetailSeeder extends Seeder
                 'created_at' => $thisdate,
                 'updated_at' => $thisdate
             ]);
+            DB::table('details')->insert([
+                'category_id' => $i+1,
+                'books_id' => $i+1,
+                'created_at' => $thisdate,
+                'updated_at' => $thisdate
+            ]);
         }
     }
 }
