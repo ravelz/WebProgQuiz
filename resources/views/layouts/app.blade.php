@@ -20,29 +20,32 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-light d-flex flex-column mx-0">
             <div class="container-fluid d-flex justify-content-center py-4 bg-warning">
-                <p class="h1" href="#">Navbar</p>
+                <p class="h1 text-white" href="#">GIANT BOOK SUPPLIER</p>
             </div>
             <div class="container-fluid ">                
                 <div class="collapse navbar-collapse d-flex flex-row justify-content-center" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Category
                             </a>
                             <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            @php
+                                $navItems = app('App\Http\Controllers\NavbarController')->getNavItems();
+                            @endphp
+                            @foreach ($navItems as $data)
+                                @include('navitems', ['some' => $data])
+                            @endforeach
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Publisher</a>
+                            <a class="nav-link active" href="{{ route('publisher') }}">Publisher</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active">Contact</a>
+                            <a class="nav-link active" href="{{ route('aboutus') }}">Contact</a>
                         </li>
                     </ul>
                 </div>

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('author');
             $table->text('imgurl');
             $table->text('sinopsis');
+            $table->unsignedBigInteger('publisher_id');
+            $table->foreign('publisher_id')->references('id')->on('publishers');
             $table->timestamps();
         });
     }

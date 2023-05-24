@@ -16,12 +16,10 @@ return new class extends Migration
         Schema::create('publishers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('imgurl');
+            $table->text('imgurl');
             $table->string('address');
             $table->string('phone');
             $table->string('email');
-            $table->unsignedBigInteger('books_id');
-            $table->foreign('books_id')->references('id')->on('books');
             $table->timestamps();
         });
     }

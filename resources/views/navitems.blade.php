@@ -1,0 +1,1 @@
+<li><a class="dropdown-item" href="{{ route('category', ['category' => $some->id]) }}">{{ $some->category }}</a></li>
